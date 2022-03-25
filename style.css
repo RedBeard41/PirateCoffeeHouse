@@ -1,90 +1,333 @@
 /*-----------------------------------------------------------------------
 --------------------------Custom CSS Properties------------------------
 ----------------------------------------------------------------------- */
+:root {
+  /* body Type size */
+  --text-base-size: 1em;
+  /* type scale */
+  --text-scale-ratio: 1.2;
+  --text-xs: calc((--text-base-size / var(--text-scale-ratio)) / var(--text-scale-ratio));
+  --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+  --text-md: calc(var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio));
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+  /* colors */
+  --dark-color-1: 36, 44, 79;
+  --dark-color-2: 33, 65, 71;
+  --light-color-1: 168, 226, 237;
+  --light-color-2: 191, 203, 255;
+  --bold-color: 77, 110, 255;
+  --neutral-color: 237, 242, 252;
+  --contrast-color: 252, 74, 50;
+  /* spacing settings */
+  --space-unit: 1em;
+  --space-xs: calc(0.5 * var(--space-unit));
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-md: calc(1.25 * var(--space-unit));
+  --space-lg: calc(2 * var(--space-unit));
+  --space-xl: calc(3.25 * var(--space-unit));
+}
 
+@media (min-width: 64rem) {
 
-/* -----------------------------------------------------------------------
+  /* responsive decision applied to all text elements */
+  :root {
+    --text-base-size: 1.25em;
+    --text-scale-ratio: 1.25;
+    --space-unit: 1.25em;
+  }
+}
+
+  /* -----------------------------------------------------------------------
 ------------------End of Custom CSS Properties-------------------------
 ----------------------------------------------------------------------- */
-
-/* -----------------------------------------------------------------------
+  /* -----------------------------------------------------------------------
 --------------------------CSS Reset------------------------
 ----------------------------------------------------------------------- */
-/*
+  /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
-html, body {
-  height: 100%;
-}
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-input, button, textarea, select {
-  font: inherit;
-}
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-/* -----------------------------------------------------------------------
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* -----------------------------------------------------------------------
 ------------------End of CSS Reset--------------------------------------------
 ----------------------------------------------------------------------- */
-
-
-
-/*-----------------------------------------------------------------------
+  /*-----------------------------------------------------------------------
 --------------------------Utility Classes------------------------
 ----------------------------------------------------------------------- */
+  /* text sizing */
+  .text-xxl {
+    font-size: var(--text-xxl);
+  }
+
+  .text-xl {
+    font-size: var(--text-xl);
+  }
+
+  .text-lg {
+    font-size: var(--text-lg);
+  }
+
+  .text-md {
+    font-size: var(--text-md);
+  }
+
+  .text-base {
+    font-size: var(--text-base-size);
+  }
+
+  .text-sm {
+    font-size: var(--text-sm, 0.833em);
+  }
+
+  .text-xs {
+    font-size: var(--text-xs);
+  }
+
+  /* color classes */
+  .f-dark-1 {
+    color: rgb(var(--dark-color-1));
+  }
+
+  .f-dark-2 {
+    color: rgb(var(--dark-color-1));
+  }
+
+  .f-light-1 {
+    color: rgb(var(--light-color-1));
+  }
+
+  .f-light-2 {
+    color: rgb(var(--light-color-2));
+  }
+
+  .f-bold {
+    color: rgb(var(--bold-color));
+  }
+
+  .f-neutral {
+    color: rgb(var(--neutral-color));
+  }
+
+  .f-contrast {
+    color: rgb(var(--contrast-color));
+  }
+
+  .bg-dark-1 {
+    background: rgb(var(--dark-color-1));
+  }
+
+  .bg-dark-2 {
+    background: rgb(var(--dark-color-1));
+  }
+
+  .bg-light-1 {
+    background: rgb(var(--light-color-1));
+  }
+
+  .bg-light-2 {
+    background: rgb(var(--light-color-2));
+  }
+
+  .bg-bold {
+    background: rgb(var(--bold-color));
+  }
+
+  .bg-neutral {
+    background: rgb(var(--neutral-color));
+  }
+
+  .bg-contrast {
+    background: rgb(var(--contrast-color));
+  }
 
 
-/* -----------------------------------------------------------------------
+
+
+  /* margin */
+  .margin-xs {
+    margin: var(--space-xs);
+  }
+
+  .margin-sm {
+    margin: var(--space-sm);
+  }
+
+  .margin-md {
+    margin: var(--space-md);
+  }
+
+  .margin-lg {
+    margin: var(--space-lg);
+  }
+
+  .margin-xl {
+    margin: var(--space-xl);
+  }
+
+  /* padding */
+  .padding-xs {
+    padding: var(--space-xs);
+  }
+
+  .padding-sm {
+    padding: var(--space-sm);
+  }
+
+  .padding-md {
+    padding: var(--space-md);
+  }
+
+  .padding-lg {
+    padding: var(--space-lg);
+  }
+
+  .padding-xl {
+    padding: var(--space-xl);
+  }
+
+  .flexbox {
+    display: flex;
+  }
+
+  .gridContainer{
+    display: grid;
+  }
+
+  .container{
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .screen-reader-only {
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+  }
+
+
+
+  /* -----------------------------------------------------------------------
 ------------------End of Utility Classes-------------------------
 ----------------------------------------------------------------------- */
-
-/*-----------------------------------------------------------------------
+  /*-----------------------------------------------------------------------
 --------------------------Block Components-------------------------------
 ----------------------------------------------------------------------- */
+.hero-splash {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 
+}
 
-/* -----------------------------------------------------------------------
+.navigation {
+  
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-sm);
+  /* margin: var(--space-sm); */
+}
+
+.link{
+  text-decoration: none;
+  /* text-align: center; */
+
+}
+
+  /* -----------------------------------------------------------------------
 ------------------End of Block Components---------------------------------
 ----------------------------------------------------------------------- */
 
-/*-----------------------------------------------------------------------
+
+  /*-----------------------------------------------------------------------
 --------------------------Block Elements------------------------
 ----------------------------------------------------------------------- */
+.navigation__item {
+list-style-type: none;
+
+/* padding: 0 0 0 var(--space-sm) ; */
+/* flex: 1 0 100px; */
+}
+
+.logo {
+  width:100px;
+  height: auto;
+  margin-right: var(--space-lg);
+}
 
 
-/* -----------------------------------------------------------------------
+
+
+
+  /* -----------------------------------------------------------------------
 ------------------End of Block Elements-------------------------
 ----------------------------------------------------------------------- */
-
-/*-----------------------------------------------------------------------
+  /*-----------------------------------------------------------------------
 --------------------------Modifiers------------------------
 ----------------------------------------------------------------------- */
+.navigation__item--right {
+text-align: right;
+flex: 2;
+}
 
+.navigation__item--left {
+text-align: left;
+padding-right:
 
-/* -----------------------------------------------------------------------
+}
+
+.navigation__item--center {
+text-align: center;
+
+padding-left: none;
+padding-right: none;
+min-width: 100px;
+}
+
+  /* -----------------------------------------------------------------------
 ------------------End of Modifiers-------------------------
 ----------------------------------------------------------------------- */
-
-/*-----------------------------------------------------------------------
+  /*-----------------------------------------------------------------------
 --------------------------Media Queries------------------------
 ----------------------------------------------------------------------- */
-
-
-/* -----------------------------------------------------------------------
+  /* -----------------------------------------------------------------------
 ------------------End of Media Queries-------------------------
 ----------------------------------------------------------------------- */
